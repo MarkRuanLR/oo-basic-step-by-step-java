@@ -1,26 +1,28 @@
 package practice07;
 
-import practice06.Person;
-
 public class Teacher extends Person {
-    int Klass;
-
-    public int getKlass() {
-        return Klass;
+    Klass klass = new Klass();
+    public Klass getKlass() {
+        return klass;
     }
 
-    public Teacher(String name, int age){
-        super(name, age);
-    }
-    public Teacher(String name, int age, int Klass){
+    public Teacher(String name, int age, Klass Klass){
         super(name,age);
-        this.Klass = Klass;
+        this.klass = Klass;
     }
-
+    public Teacher(String name, int age){
+        super(name,age);
+    }
+    public String introduceWith(Student student){
+        if(this.klass.number == student.klass.number)
+            return super.introduce() + " I am a Teacher. I teach " + student.name + ".";
+        else
+            return super.introduce() + " I am a Teacher. I don't teach "+ student.name + ".";
+    }
     @Override
     public String introduce() {
-        if(Klass != 0)
-            return super.introduce() + " I am a Teacher. I teach Class " + Klass + ".";
+        if(klass.number != 0)
+            return super.introduce() + " I am a Teacher. I teach " + klass.getDisplayName() + ".";
         else
             return super.introduce() + " I am a Teacher. I teach No Class.";
 

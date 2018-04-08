@@ -3,7 +3,9 @@ package practice08;
 public class Person {
     String name;
     int age;
-    public Person(String name,int age){
+    int id;
+    public Person(int id, String name,int age){
+        this.id =id;
         this.name = name;
         this.age = age;
     }
